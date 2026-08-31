@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariam Mohamed Safaey — Junior .NET Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f6f4ee;
+    --panel: #edE8d9;
+    --ink: #1b211f;
+    --muted: #6e756c;
+    --accent: #2f6b63;
+    --line: #d9d3c1;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--ink);}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- header / nav ---------- */
+
+  header.site{
+    padding:28px 0 18px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .brand-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px 20px;
+  }
+
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:15px;
+    color:var(--ink);
+  }
+
+  nav.primary{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+
+  nav.primary a{
+    text-decoration:none;
+    color:var(--muted);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+
+  nav.primary a:hover{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero{
+    padding:56px 0 48px;
+  }
+
+  .hero h1{
+    font-size:clamp(28px, 5vw, 38px);
+    line-height:1.25;
+    margin:0 0 14px;
+    font-weight:600;
+    max-width:22ch;
+  }
+
+  .hero p.role{
+    color:var(--muted);
+    margin:0 0 28px;
+    font-size:17px;
+    max-width:52ch;
+  }
+
+  .query-panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:18px 20px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    line-height:1.75;
+    color:var(--ink);
+    overflow-x:auto;
+  }
+
+  .query-panel .kw{color:var(--accent);}
+  .query-panel .muted{color:var(--muted);}
+
+  .cursor{
+    display:inline-block;
+    width:7px;
+    height:14px;
+    background:var(--accent);
+    margin-left:2px;
+    vertical-align:-2px;
+    animation:blink 1.1s steps(1) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cursor{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  @keyframes blink{
+    0%, 49%{opacity:1;}
+    50%, 100%{opacity:0;}
+  }
+
+  /* ---------- sections ---------- */
+
+  section{
+    padding:44px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  section:last-of-type{border-bottom:none;}
+
+  .section-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--accent);
+    margin:0 0 22px;
+  }
+
+  section h3.entry-title{
+    margin:0 0 2px;
+    font-size:18px;
+    font-weight:600;
+  }
+
+  .entry-meta{
+    color:var(--muted);
+    font-size:14px;
+    margin:0 0 12px;
+  }
+
+  ul.bullets{
+    margin:0 0 12px;
+    padding-left:20px;
+  }
+
+  ul.bullets li{
+    margin-bottom:6px;
+  }
+
+  .stack-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  .stack-line span.k{color:var(--accent);}
+
+  .entry{
+    padding-bottom:26px;
+    margin-bottom:26px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .entry:last-child{
+    border-bottom:none;
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+
+  .entry .links{
+    margin-top:10px;
+    font-size:13.5px;
+  }
+
+  .entry .links a{
+    text-decoration:underline;
+    text-decoration-color:var(--line);
+    text-underline-offset:3px;
+  }
+
+  .entry .links a:hover{
+    color:var(--accent);
+    text-decoration-color:var(--accent);
+  }
+
+  p.lede{
+    max-width:58ch;
+    margin:0 0 8px;
+  }
+
+  /* skills */
+
+  .skill-row{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:6px 18px;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+
+  .skill-row:last-child{border-bottom:none;}
+
+  .skill-row dt{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  .skill-row dd{margin:0;}
+
+  dl.skills{margin:0;}
+
+  .soft-line{
+    color:var(--ink);
+    max-width:60ch;
+  }
+
+  /* contact / footer */
+
+  .contact-grid{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:15px;
+  }
+
+  .contact-grid a{
+    text-decoration:underline;
+    text-decoration-color:var(--line);
+    text-underline-offset:3px;
+  }
+
+  .contact-grid a:hover{
+    color:var(--accent);
+    text-decoration-color:var(--accent);
+  }
+
+  footer{
+    padding:30px 0 50px;
+    color:var(--muted);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+  }
+
+  @media (max-width:520px){
+    .wrap{padding:0 18px;}
+    .hero{padding:40px 0 34px;}
+    .skill-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap brand-row">
+    <div class="brand">Mariam Mohamed Safaey</div>
+    <nav class="primary">
+      <a href="#about">about</a>
+      <a href="#education">education</a>
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" id="top">
+    <h1>Backend engineer working in ASP.NET Core, C#, and SQL.</h1>
+    <p class="role">Cairo, Egypt — building APIs and web applications, and branching into Node.js, cloud infrastructure, and microservices.</p>
+    <div class="query-panel" aria-hidden="true">
+      <span class="kw">SELECT</span> name, focus <span class="kw">FROM</span> engineers<br>
+      <span class="kw">WHERE</span> stack <span class="kw">IN</span> (<span class="muted">'ASP.NET Core'</span>, <span class="muted">'C#'</span>, <span class="muted">'SQL'</span>)<br>
+      <span class="kw">AND</span> still_learning = <span class="kw">TRUE</span>;<span class="cursor"></span>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="section-label">-- about</p>
+    <p class="lede">I'm an enthusiastic backend engineer with a strong foundation in ASP.NET Core, C#, and SQL, focused on building APIs and MVC applications that hold up as they scale. I'm currently deepening my work in Node.js and Express, and spending more time with cloud technologies and microservices architecture — looking for a team where I can keep growing that focus.</p>
+  </section>
+
+  <section id="education">
+    <p class="section-label">-- education</p>
+    <div class="entry">
+      <h3 class="entry-title">National Assiut University</h3>
+      <p class="entry-meta">College of Computers and Artificial Intelligence — Bachelor in Information Systems, 2022–2026</p>
+      <p class="lede">GPA: 3.39 / 4 (Very Good). Graduated — Assiut, Egypt.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="section-label">-- experience</p>
+    <div class="entry">
+      <h3 class="entry-title">ASP.NET Core Developer</h3>
+      <p class="entry-meta">Freelancer, UpWork</p>
+      <ul class="bullets">
+        <li>Developed API and MVC web applications for clients using ASP.NET Core.</li>
+        <li>Designed and integrated backend solutions and web applications with a focus on scalability and efficiency.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="courses">
+    <p class="section-label">-- courses_and_certifications</p>
+
+    <div class="entry">
+      <h3 class="entry-title">Information Technology Institute (ITI) — Mahara-Tech</h3>
+      <ul class="bullets">
+        <li>Introduction to Web Development — HTML5, CSS, JavaScript, C#, SQL database management, and the .NET Framework.</li>
+        <li>Red Hat System Administration I — completed 12 Nov 2024 (9h 11m). Verification code: aQSSsZde5M.</li>
+        <li>Cybersecurity For All — Cybersecurity Academy, in partnership with EG-CERT — completed 12 Nov 2024. Verification code: lv9piBxKc8.</li>
+        <li>Cloud and Virtualization Concepts. Verification code: 1BmKdlslvJ.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">Egypt's Digital Pioneers Initiative</h3>
+      <p class="entry-meta">Ministry of Communications</p>
+      <ul class="bullets">
+        <li>.NET Full Stack Development — 6-month intensive program covering full-stack .NET development, software engineering fundamentals, and modern web technologies.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">DeepLearning.AI</h3>
+      <p class="entry-meta">via Coursera</p>
+      <ul class="bullets">
+        <li>Data Analytics Foundations — completed 26 Mar 2025.</li>
+        <li>Applied Statistics for Data Analytics — completed 30 Mar 2025.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="section-label">-- projects</p>
+
+    <div class="entry">
+      <h3 class="entry-title">Hospital Management System (HMS)</h3>
+      <p class="lede">A comprehensive system for managing hospital operations, including patient records, appointments, and billing.</p>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">Point of Sale (POS) System</h3>
+      <p class="lede">Built with C# to streamline the sales transaction process in retail environments.</p>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">ECG Disease Prediction System</h3>
+      <p class="entry-meta">Graduation project</p>
+      <ul class="bullets">
+        <li>AI-powered system that analyzes ECG signals to predict and diagnose cardiac diseases, using pretrained deep learning models integrated with LLMs for generating diagnostic reports.</li>
+      </ul>
+      <p class="stack-line"><span class="k">stack:</span> pretrained CNN/Transformer models, LLM integration, Python, TensorFlow/PyTorch, ASP.NET Core API</p>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">VanWear — buy &amp; sell fashion online</h3>
+      <ul class="bullets">
+        <li>ASP.NET MVC app for buying and selling clothes, with role-based access for buyers, sellers, and admins.</li>
+        <li>Clothing listings with images and categories, search and filtering, a shopping cart and checkout flow, and an admin dashboard for managing users, listings, and reports.</li>
+      </ul>
+      <p class="stack-line"><span class="k">stack:</span> ASP.NET MVC, Entity Framework Core, ASP.NET Identity, SQL Server, Bootstrap, JavaScript</p>
+      <p class="links"><a href="https://github.com/MariamSafaey/VanWear">view on GitHub</a></p>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">MediTrack — healthcare analytics &amp; EHR intelligence</h3>
+      <ul class="bullets">
+        <li>Healthcare analytics platform built on MongoDB using the MediTrack EHR dataset, with CSV ingestion and 50+ queries for clinical data analysis.</li>
+        <li>Streamlit and web dashboards, EHR data-quality audits, CRUD management for patient records, and ML models for 30-day readmission prediction.</li>
+      </ul>
+      <p class="links"><a href="https://github.com/MariamSafaey/-MediTrack-Healthcare-Analytics-EHR-Intelligence-Platform">view on GitHub</a></p>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">Medical Analytics — big data MongoDB project</h3>
+      <ul class="bullets">
+        <li>Pipeline processing 118,000+ synthetic electronic health records (Synthea dataset) across 7 MongoDB collections, with one-to-one, one-to-many, and many-to-many relationships.</li>
+        <li>28 queries, 5 aggregation pipelines, and 3 Map-Reduce jobs, plus a Streamlit GUI, a full data-quality assessment, and ML models (Random Forest and Neural Network) for clinical prediction.</li>
+      </ul>
+      <p class="stack-line"><span class="k">stack:</span> Python, MongoDB, PyMongo, Streamlit, Scikit-learn</p>
+      <p class="links"><a href="https://github.com/MariamSafaey/Big-Data">view on GitHub</a></p>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">Diabetes risk screening — clinical prediction web app</h3>
+      <ul class="bullets">
+        <li>Flask app that estimates diabetes likelihood from a clinical-style intake form, using a preprocessing pipeline of imputation, scaling, and one-hot encoding.</li>
+        <li>Trains and compares Random Forest, Logistic Regression, and XGBoost classifiers, returning a risk band with an estimated probability.</li>
+      </ul>
+      <p class="stack-line"><span class="k">stack:</span> Python, Flask, Pandas, Scikit-learn, XGBoost</p>
+      <p class="links"><a href="https://github.com/MariamSafaey/clinical-diabetes-prediction">view on GitHub</a></p>
+    </div>
+
+    <div class="entry">
+      <h3 class="entry-title">ShopVerse — full-stack e-commerce API &amp; storefront</h3>
+      <ul class="bullets">
+        <li>Node.js/Express REST API, MongoDB (Mongoose), JWT authentication, and an HTML/CSS/JS storefront.</li>
+        <li>Product catalog with search and filtering, cart and checkout flow, order management, an admin dashboard, and multer-based image uploads.</li>
+      </ul>
+      <p class="stack-line"><span class="k">stack:</span> Node.js, Express.js, MongoDB, Mongoose, JWT, bcrypt, multer</p>
+      <p class="links"><a href="https://github.com/MariamSafaey/shopping-verse">view on GitHub</a></p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="section-label">-- skills</p>
+    <dl class="skills">
+      <div class="skill-row">
+        <dt>languages</dt>
+        <dd>C++, C, C#</dd>
+      </div>
+      <div class="skill-row">
+        <dt>web</dt>
+        <dd>HTML5, JavaScript, jQuery, CSS</dd>
+      </div>
+      <div class="skill-row">
+        <dt>frameworks</dt>
+        <dd>ASP.NET, .NET Framework, Node.js, Express.js</dd>
+      </div>
+      <div class="skill-row">
+        <dt>database</dt>
+        <dd>SQL</dd>
+      </div>
+      <div class="skill-row">
+        <dt>cloud &amp; devops</dt>
+        <dd>Docker; cloud service models (IaaS/PaaS/SaaS), virtualization, hypervisors</dd>
+      </div>
+      <div class="skill-row">
+        <dt>ai &amp; ml</dt>
+        <dd>Pretrained models, LLM integration, TensorFlow, PyTorch (basics), Scikit-learn, data preprocessing, model fine-tuning</dd>
+      </div>
+      <div class="skill-row">
+        <dt>data &amp; tools</dt>
+        <dd>Python, NumPy, Pandas, Matplotlib, Git, GitHub</dd>
+      </div>
+    </dl>
+    <p class="section-label" style="margin-top:30px;">-- soft_skills</p>
+    <p class="soft-line">Teamwork, leadership, communication, emotional intelligence, adaptability, public speaking, motivation, reliability, integrity, decision making, negotiation, problem solving, accountability, time management, creativity.</p>
+    <p class="section-label" style="margin-top:30px;">-- languages</p>
+    <p class="soft-line">Arabic — native. English — fluent.</p>
+  </section>
+
+  <section id="contact">
+    <p class="section-label">-- contact</p>
+    <div class="contact-grid">
+      <a href="mailto:mariammohamedsafaey@gmail.com">mariammohamedsafaey@gmail.com</a>
+      <a href="tel:+201000985060">+20 100 098 5060</a>
+      <a href="https://www.linkedin.com/in/mariam-mohamad-safaey-12344a266">linkedin.com/in/mariam-mohamed-safaey</a>
+      <a href="https://github.com/MariamSafaey">github.com/MariamSafaey</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  © 2026 Mariam Mohamed Safaey
+</footer>
+
+</body>
+</html>
